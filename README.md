@@ -94,13 +94,43 @@ class NumberTailRecursion {
 will produce compile time error:
 `Error: Groovyc: No recursive calls detected. You must remove annotation @TailRecursive.`
 
-From documentation
-`@TailRecursive` is supposed to work in combination with @CompileStatic Known shortcomings:
-* Only non-void methods are currently being handled. Void methods will fail compilation.
-* **Only direct recursion (calling the exact same method again) is supported.**
-* Mixing of tail calls and non-tail calls is not possible. The compiler will complain if some recursive calls cannot be handled.
-* Checking if a recursive call is really tail-recursive is not very strict. You might run into cases where non-tail calls will be considered tail calls.
-* In the presence of method overloading and method overriding you might run into situations where a call is considered recursive although it really is not.
+From documentation (known shortcomings):
+* Only non-void methods are currently being handled. 
+Void methods will fail compilation.
+
+* **Only direct recursion (calling the exact same method 
+again) is supported.**
+
+* Mixing of tail calls and non-tail calls is not possible. 
+The compiler will complain if some recursive calls cannot 
+be handled.
+
+* Checking if a recursive call is really tail-recursive 
+is not very strict. You might run into cases where 
+non-tail calls will be considered tail calls.
+
+* In the presence of method overloading and method 
+overriding you might run into situations where a call 
+is considered recursive although it really is not.
+
 * Catching Throwable around a recursive might lead to problems
+
 * Non trivial continuation passing style examples do not work.
+
 * Probably many unrecognized edge cases.
+
+## example
+* factorial
+    ```
+    @TailRecursive
+    static def factorial(n, accu = 1G) {
+        n < 2 ? accu : factorial(n - 1, n * accu)
+    }
+    ```
+* fibonacci
+    ```
+    @TailRecursive
+    static def fibonacci(first = 0G, second = 1G, n) {
+        n == 0 ? first : fibonacci(second, first + second, n - 1)
+    }
+    ```
