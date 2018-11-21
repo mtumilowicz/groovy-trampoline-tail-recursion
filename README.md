@@ -125,7 +125,8 @@ end
 ```
 After `f` calls `g`, it has nothing else to do. In 
 such situations, the program does not need to return 
-to the calling function when the called function ends. 
+to the calling function when the called function ends.
+
 **Therefore, after the tail call, the program does not 
 need to keep any information about the calling function 
 in the stack**.
