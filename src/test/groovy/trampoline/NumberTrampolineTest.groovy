@@ -12,9 +12,9 @@ class NumberTrampolineTest extends Specification {
         NumberTrampoline.isEven(2)
     }
 
-    def "even 1000"() {
+    def "even 10_000"() {
         expect:
-        NumberTrampoline.isEven(1000)
+        NumberTrampoline.isEven(10_000)
     }
 
     def "odd 123_001"() {
