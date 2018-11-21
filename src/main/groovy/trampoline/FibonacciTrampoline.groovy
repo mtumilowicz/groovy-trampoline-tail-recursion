@@ -8,6 +8,6 @@ class FibonacciTrampoline {
     }
 
     static def fibo(int n) {
-        return fibonacci.trampoline()(n)
+        return fibonacci(n)()
     }
 }
