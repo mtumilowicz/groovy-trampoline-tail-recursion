@@ -8,22 +8,22 @@ import spock.lang.Specification
 class FactorialTrampolineTest extends Specification {
     def "5! -> 120"() {
         expect:
-        FactorialTrampoline.factorial(5)() == 120
+        FactorialTrampoline.factorial(5) == 120
     }
 
     def "11! -> 39_916_800"() {
         expect:
-        FactorialTrampoline.factorial(11)() == 39_916_800
+        FactorialTrampoline.factorial(11) == 39_916_800
 
     }
 
     def "13! -> 6_227_020_800"() {
         expect:
-        FactorialTrampoline.factorial(13)() == 6_227_020_800
+        FactorialTrampoline.factorial(13) == 6_227_020_800
     }
 
     def "14! -> 87_178_291_200"() {
         expect:
-        FactorialTrampoline.factorial(14)() == 87_178_291_200
+        FactorialTrampoline.factorial(14) == 87_178_291_200
     }
 }

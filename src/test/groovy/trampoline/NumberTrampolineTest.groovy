@@ -19,6 +19,6 @@ class NumberTrampolineTest extends Specification {
 
     def "odd 123_001"() {
         expect:
-        NumberTrampoline.even(123_001)
+        NumberTrampoline.odd(123_001)
     }
 }

@@ -9,16 +9,16 @@ class FibonacciTrampolineTest extends Specification {
 
     def "fibo 10 = 55"() {
         expect:
-        FibonacciTrampoline.fibo(10)() == 55
+        FibonacciTrampoline.fibo(10) == 55
     }
 
     def "fibo 27 = 196_418"() {
         expect:
-        FibonacciTrampoline.fibo(27)() == 196_418
+        FibonacciTrampoline.fibo(27) == 196_418
     }
 
     def "fibo 50 = 12_586_269_025"() {
         expect:
-        FibonacciTrampoline.fibo(50)() == 12_586_269_025
+        FibonacciTrampoline.fibo(50) == 12_586_269_025
     }
 }
