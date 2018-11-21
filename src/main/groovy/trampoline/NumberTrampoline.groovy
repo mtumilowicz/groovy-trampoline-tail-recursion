@@ -7,10 +7,10 @@ class NumberTrampoline {
     private static final def odd = { i -> i == 0 ? false : even.trampoline(i - 1) }
 
     static def isEven(int n) {
-        return even(n)()
+        even(n)()
     }
 
     static def isOdd(int n) {
-        return odd(n)()
+        odd(n)()
     }
 }

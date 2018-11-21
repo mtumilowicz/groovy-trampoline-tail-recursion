@@ -8,6 +8,6 @@ class FactorialTrampoline {
     }
 
     static def getFactorial(int n) {
-        return factorial(n)()
+        factorial(n)()
     }
 }
