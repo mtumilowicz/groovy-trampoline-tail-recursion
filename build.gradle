@@ -2,7 +2,7 @@ plugins {
     id 'groovy'
 }
 
-group 'groovy-trampoline'
+group 'groovy-trampoline-tail-recursion'
 version '1.0-SNAPSHOT'
 
 repositories {
