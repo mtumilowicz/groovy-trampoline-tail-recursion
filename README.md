@@ -25,6 +25,60 @@ returned. That value will become the final result of
 the trampoline. **That way, calls are made serially, 
 rather than filling the stack**.
 
+## bug
+Note that the code in `trampoline` package is quite strange:
+```
+class FactorialTrampoline {
+    private static final def factorial = { n, accu = 1G ->
+        n < 2 ? accu : factorial.trampoline(n - 1, n * accu)
+    }
+
+    static def getFactorial(int n) {
+        factorial(n)()
+    }
+}
+```
+because of bug in groovy (example in `bug` package)
+```
+class FactorialTrampolineGroovyBug {
+    public static final def factorial = { n, accu = 1G -> 
+        n < 2 ? accu : factorial.trampoline(n - 1, n * accu) }.trampoline()
+    
+    static testFactorialSuccess() {
+        assert factorial(5) == 120
+    }
+
+    static testFactorialFail() {
+        assert factorial(6) == 120
+    }
+}
+```
+and tests:
+* when calling outside the class
+    ```
+    when:
+    FactorialTrampolineGroovyBug.factorial(5) == 120
+    
+    then:
+    thrown(MissingMethodException)
+    ```
+* calling from inside
+    ```
+    when:
+    FactorialTrampolineGroovyBug.testFactorialSuccess()
+    
+    then:
+    noExceptionThrown()
+    ```
+    ```
+    when:
+    FactorialTrampolineGroovyBug.testFactorialFail()
+    
+    then:
+    thrown(PowerAssertionError)
+    ```
+**so in our examples we have to go through additional functions.**
+
 ## example
 Examples + tests of using trampoline are in `trampoline` package.
 * factorial
