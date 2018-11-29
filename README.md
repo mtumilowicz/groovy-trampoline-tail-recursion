@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/mtumilowicz/groovy-trampoline.svg?branch=master)](https://travis-ci.com/mtumilowicz/groovy-trampoline)
+[![Build Status](https://travis-ci.com/mtumilowicz/groovy-trampoline-tail-recursion.svg?branch=master)](https://travis-ci.com/mtumilowicz/groovy-trampoline-tail-recursion)
 
 # groovy-trampoline-tail-recursion
 Trampoline and tail recursion features for groovy closures.
