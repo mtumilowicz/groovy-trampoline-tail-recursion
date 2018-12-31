@@ -178,7 +178,7 @@ is considered recursive although it really is not.
 
 ## stack frames
 We will compare the stack frames of recursive call and 
-tail-recursive call - suppose we have factorial
+tail-recursive call (of factorial function)
 * recursive call
     ```
     init-call: factorial(3)
