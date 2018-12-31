@@ -177,7 +177,7 @@ is considered recursive although it really is not.
 * Probably many unrecognized edge cases.
 
 ## stack frames
-We will compare the stack (horizontally) of recursive call and 
+We will compare the stack frames of recursive call and 
 tail-recursive call - suppose we have factorial
 * recursive call
     ```
