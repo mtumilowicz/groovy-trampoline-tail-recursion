@@ -188,7 +188,7 @@ tail-recursive call (of factorial function)
     factorial(1)
     // 1
     ```
-    and in opposite direction
+    and then traverse stack in opposite direction
     ```
     1
     1 * 2 = 2
