@@ -176,6 +176,29 @@ is considered recursive although it really is not.
 
 * Probably many unrecognized edge cases.
 
+## stack frames
+We will compare the stack (horizontally) of recursive call and 
+tail-recursive call - suppose we have factorial
+* recursive call
+    ```
+    init-call: factorial(3)
+    // 3 * factorial(2)
+    factorial(2)
+    // 2 * factorial(1)
+    factorial(1)
+    // 1
+    ```
+    and in opposite direction
+    ```
+    1
+    1 * 2 = 2
+    3 * 2 = 6
+    ```
+* tail-recursive call (reusing same frame - trampoline)
+    ```
+    init-call: factorial(3)
+    factorialTailRecursive(3, 1) -> factorialTailRecursive(2, 3) -> factorialTailRecursive(1, 6) -> 6 
+    ```
 ## example
 * factorial
     ```
